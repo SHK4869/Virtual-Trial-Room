@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+   crossorigin="anonymous">
+ </script>
+
+ <style>
+ body {
+     background-color:black;
+      background-size: cover;
+      background-repeat: no-repeat;
+     /*background-color: #cccccc;*/
+ }
+
+ </style>
+
+   <script>
+     $(document).ready(function() {
+       $('#company').change(function() {
+
+         var company = $('#company').val();
+         console.log(company)
+         // Make Ajax Request and expect JSON-encoded data
+         $.getJSON(
+           'http://127.0.0.1:1212/get_models' + '/' + company,
+           function(data) {
+
+             // Remove old options
+             $('#models').find('option').remove();
+
+             // Add new items
+             $.each(data, function(key, val) {
+               var option_item = '<option value="' + val + '">' + val + '</option>'
+               $('#models').append(option_item);
+             });
+           }
+         );
+       });
+     });
+   </script>
+    <title>Smart Trial Room</title>
+  </head>
+  <body >
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Smart Trial Room</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a data-toggle="modal" data-target="#myModal">Predict</a></li>
+          <li><a href="shirt.html">Shirts</a></li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+          <li><a href="pant.html">Pants</a></li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+          <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog  modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Predict</h4>
+              </div>
+              <div class="modal-body">
+                <p>Select a shirt</p>
+                <form class="form-inline" action="http://127.0.0.1:5000/predict" method="post">
+                  <select name="shirt" class="form-control" id="company">
+                                      <option value="0" selected="selected">----------Select one shirt----</option>
+                                      <option value="1">black shirt</option>
+                                      <option value="2">blue shirt</option>
+                                      <option value="3">dupli shirt</option>
+                                      <option value="4">black shirt</option>
+
+                                    </select>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  				  <p>Select a pant</p>
+
+                                    <select name="pant" class="form-control" id="company">
+                                      <option value="0" selected="selected">----------Select one pant----</option>
+                                      <option value="1">black pant</option>
+                                      <option value="2">white pant</option>
+
+                                    </select>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                 <button type="submit" class="btn btn-default pull-right">Try</button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                </form>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        </ul>
+        </div>
+        </nav>
+  <img src="../static/assets/shirt1.png" class="w3-border w3-padding" alt="Norway" style="width:300px;height:260px;">
+    <img src="../static/assets/shirt2.png" class="w3-border w3-padding" alt="Norway" style="width:300px;height:260px;">
+      <img src="../static/assets/shirt6.png" class="w3-border w3-padding" alt="Norway" style="width:300px;height:260px;">
+        <img src="../static/assets/shirt51.jpg" class="w3-border w3-padding" alt="Norway" style="width:300px;height:260px;">
+
+</body>
+</html>
