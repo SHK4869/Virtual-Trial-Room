@@ -12,7 +12,7 @@ But the model was applicable only for showrooms which could afford and actually 
 Our model is applicable for any user who has a basic RGB camera on his device. Thus it can be extended to online shopping users and smaller businesses who wouldn’t have opted for a costly Kinect.
 
 ## Use Instructions
-Once on the main page, you can check out various shirts and pants from the navbar. Predict will show you the result with the selected shirt and pant.
+Run the flasktry.py file and go to localhost. Once on the main page, you can check out various shirts and pants from the navbar. Predict will show you the result with the selected shirt and pant.
 
 ## Installation
 
