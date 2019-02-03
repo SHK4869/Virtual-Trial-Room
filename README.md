@@ -16,8 +16,8 @@ Once on the main page, you can check out various shirts and pants from the navba
 
 ## Installation
 
-`< pip3 install opencv-python>` 
-`< pip3 install flask>` 
+`pip3 install opencv-python` <br>
+`pip3 install flask` 
 
 ## Prerequisites
 Webcam
